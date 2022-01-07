@@ -2,8 +2,10 @@ package main
 
 import (
 	"chat/internal/handlers"
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -13,5 +15,9 @@ func main() {
 	go handlers.ListenToWsChannel()
 
 	log.Println("Starting web server...")
-	_ = http.ListenAndServe(":8000", mux)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
+	_ = http.ListenAndServe(fmt.Sprintf(":%s", port), mux)
 }
