@@ -3,6 +3,7 @@ package handlers
 import (
 	"log"
 	"net/http"
+	"os"
 	"sort"
 
 	"github.com/CloudyKit/jet/v6"
@@ -174,7 +175,11 @@ func renderPage(w http.ResponseWriter, template string, variables jet.VarMap) er
 		return err
 	}
 
-	err = view.Execute(w, variables, nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
+	err = view.Execute(w, variables, port)
 	if err != nil {
 		log.Println(err)
 		return err
