@@ -97,7 +97,7 @@
     }
 
     function initializeWebsockets(){
-        socket = new ReconnectingWebSocket("wss://127.0.0.1:{{.}}/connect", null, {reconnectInterval: 1000});
+        socket = new ReconnectingWebSocket("wss://ramiawar-go-chat.herokuapp.com/:{{.}}/connect", null, {reconnectInterval: 1000});
         
         socket.onopen = () => {
             console.log("Connection successful")
