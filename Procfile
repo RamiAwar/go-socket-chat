@@ -1,1 +1,1 @@
-web: go run cmd/web/*.go
+web: web
