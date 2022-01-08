@@ -25,8 +25,20 @@ var upgradeConnection = websocket.Upgrader{
 	CheckOrigin:     func(r *http.Request) bool { return true },
 }
 
+type HomeContext struct {
+	SocketProtocol string
+	Host           string
+}
+
 func Home(w http.ResponseWriter, r *http.Request) {
-	err := renderPage(w, "home.jet", nil)
+	var ctx HomeContext
+	if os.Getenv("ENVIRONMENT") == "production" {
+		ctx = HomeContext{Host: "ramiawar-go-chat.herokuapp.com", SocketProtocol: "wss"}
+	} else {
+		ctx = HomeContext{Host: "127.0.0.1:8000", SocketProtocol: "ws"}
+	}
+
+	err := renderPage(w, "home.jet", nil, ctx)
 	if err != nil {
 		log.Println(err)
 	}
@@ -168,18 +180,14 @@ func broadcast(response WsJsonResponse) {
 	}
 }
 
-func renderPage(w http.ResponseWriter, template string, variables jet.VarMap) error {
+func renderPage(w http.ResponseWriter, template string, variables jet.VarMap, context interface{}) error {
 	view, err := views.GetTemplate(template)
 	if err != nil {
 		log.Println(err)
 		return err
 	}
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8000"
-	}
-	err = view.Execute(w, variables, port)
+	err = view.Execute(w, variables, context)
 	if err != nil {
 		log.Println(err)
 		return err
