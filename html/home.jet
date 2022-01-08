@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ephm</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Ephm">
+    <meta name="description" content="Ephemeral Chat App by Rami Awar">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ephm.herokuapp.com/">
+    <meta property="og:title" content="Ephm">
+    <meta property="og:description" content="Ephemeral Chat App by Rami Awar">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ephm.herokuapp.com/">
+    <meta property="twitter:title" content="Ephm">
+    <meta property="twitter:description" content="Ephemeral Chat App by Rami Awar">
 
     <link href="/static/css/out.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">

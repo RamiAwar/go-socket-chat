@@ -33,7 +33,7 @@ type HomeContext struct {
 func Home(w http.ResponseWriter, r *http.Request) {
 	var ctx HomeContext
 	if os.Getenv("ENVIRONMENT") == "production" {
-		ctx = HomeContext{Host: "ramiawar-go-chat.herokuapp.com", SocketProtocol: "wss"}
+		ctx = HomeContext{Host: "ephm.herokuapp.com", SocketProtocol: "wss"}
 	} else {
 		ctx = HomeContext{Host: "127.0.0.1:8000", SocketProtocol: "ws"}
 	}
