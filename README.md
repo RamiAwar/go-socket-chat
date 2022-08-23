@@ -6,7 +6,10 @@ Small socket-based chat app written in Go, HTML, JS, and TailwindCSS.
 You can use this to chat with friends online. The chat is ephemeral, only visible on your local browsers until you close the tab. Nothing is stored anywhere.
 https://ephm.herokuapp.com/
 
-
+<div style="display: flex; flex: row;">
+<img src="1.png" width="500"/>
+<img src="2.png" width="500"/>
+</div>
 
 # Local development
 To run locally:
